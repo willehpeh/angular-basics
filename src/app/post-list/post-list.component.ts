@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Post } from '../models/post';
+import { PostsService } from '../services/posts.service';
 
 @Component({
   selector: 'app-post-list',
@@ -14,18 +15,20 @@ export class PostListComponent implements OnInit {
 
   posts: Post[];
 
-  constructor() { }
+  constructor(private postsService: PostsService) { }
 
   ngOnInit(): void {
-    this.postOne = new Post('Mon premier tweet', 'Voici ce que j\'ai à raconter');
-    this.postTwo = new Post('Mon deuxième tweet', 'Voici ce que j\'ai encore à raconter');
-    this.postThree = new Post('Mon troisième tweet', 'Voici ce que j\'ai toujours à raconter');
+    // this.postOne = new Post('Mon premier tweet', 'Voici ce que j\'ai à raconter');
+    // this.postTwo = new Post('Mon deuxième tweet', 'Voici ce que j\'ai encore à raconter');
+    // this.postThree = new Post('Mon troisième tweet', 'Voici ce que j\'ai toujours à raconter');
+    //
+    // this.posts = [this.postOne, this.postTwo, this.postThree];
 
-    this.posts = [this.postOne, this.postTwo, this.postThree];
+    this.posts = this.postsService.getPosts();
   }
 
   onPostClicked(title: string) {
-    alert(title + ' was clicked!');
+
   }
 
 }
