@@ -28,7 +28,7 @@ export class PostListComponent implements OnInit {
   }
 
   onPostClicked(title: string) {
-
+    this.postsService.clickPost(title);
   }
 
 }
