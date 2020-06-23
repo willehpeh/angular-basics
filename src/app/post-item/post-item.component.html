@@ -1,0 +1,15 @@
+<mat-card [ngClass]="{ 'highlighted': index === 0 }">
+  <mat-card-title [ngStyle]="{ fontSize: (index + 2) + 'em' }">{{ post.title }}</mat-card-title>
+  <mat-card-content>
+    <p>{{ post.created | date: 'medium' }}</p>
+    <img [src]="imageUrl">
+    {{ post.content }}
+    <div>
+      <input type="text" [(ngModel)]="comment">
+      {{ comment }}
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button color="primary" mat-flat-button (click)="onClickMe()">Click me!</button>
+  </mat-card-actions>
+</mat-card>
