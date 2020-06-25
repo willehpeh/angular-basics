@@ -1,0 +1,12 @@
+<h1>New Post</h1>
+<form [formGroup]="newPostForm">
+  <mat-form-field>
+    <input matInput placeholder="Titre" type="text" formControlName="title">
+    <mat-error>Ce champ est requis.</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <textarea matInput placeholder="Contenu" type="text" formControlName="content"></textarea>
+    <mat-error>Ce champ est requis.</mat-error>
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="newPostForm.invalid">Soumettre</button>
+</form>

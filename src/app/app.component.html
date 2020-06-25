@@ -1,1 +1,6 @@
-<app-post-list></app-post-list>
+<mat-toolbar color="primary">
+  <a routerLink="posts" routerLinkActive="active">Posts</a>
+  <a routerLink="messages" routerLinkActive="active">Messages</a>
+  <button mat-flat-button (click)="onNewPost()">New Post</button>
+</mat-toolbar>
+<router-outlet></router-outlet>

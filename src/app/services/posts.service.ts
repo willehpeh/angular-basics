@@ -18,4 +18,15 @@ export class PostsService {
     alert(title + ' was clicked!');
   }
 
+  addPost(post: Post) {
+    this.posts.unshift(post);
+  }
+
+  getPostById(id: number) {
+    return this.posts[id];
+  }
+
+  generatePost(post: { title: string, content: string }) {
+    return new Post(post.title, post.content);
+  }
 }

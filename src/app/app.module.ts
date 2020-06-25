@@ -3,24 +3,20 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PostItemComponent } from './post-item/post-item.component';
-import { MatCardModule } from '@angular/material/card';
-import { PostListComponent } from './post-list/post-list.component';
-import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { AppRoutingModule } from './app-routing.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostItemComponent,
-    PostListComponent
+    FourOhFourComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    MatCardModule,
-    MatButtonModule,
-    FormsModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

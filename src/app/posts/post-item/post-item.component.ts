@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Post } from '../models/post';
+import { Post } from '../../models/post';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-item',
@@ -18,7 +19,7 @@ export class PostItemComponent implements OnInit {
 
   buttonColor: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     console.log(this.index);
@@ -27,8 +28,7 @@ export class PostItemComponent implements OnInit {
   }
 
   onClickMe() {
-    console.log(this.comment);
-    this.postClicked.emit(this.post.title);
+    this.router.navigate(['posts', this.index]);
   }
 
 }
