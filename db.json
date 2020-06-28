@@ -1,0 +1,98 @@
+{
+  "posts": [
+    {
+      "id": "bf9143b4-ba65-4e67-a5dc-cf5a2a8c5994",
+      "title": "My post",
+      "content": "Some awesome content goes here!",
+      "created_at": "2020-06-27T20:51:12.681Z",
+      "userId": "f63651e8-f2cd-41aa-8216-c7ef5f694d6e",
+      "comments": []
+    },
+    {
+      "id": "f14f3def-3162-47bb-addb-90674cf01026",
+      "title": "My other post",
+      "content": "I really do have some awesome content!",
+      "created_at": "2020-06-27T20:52:25.369Z",
+      "userId": "0acfc1da-a450-4d05-ba07-057b5cfd9810",
+      "comments": [
+        "a926e21f-583f-40a2-855d-7de747e63a56"
+      ]
+    },
+    {
+      "id": "bb1f4a8c-dd7b-4db2-90d0-09b1dc05a96a",
+      "title": "Yet another post",
+      "content": "You won't believe how incredible this content is!",
+      "created_at": "2020-06-27T20:53:40.765Z",
+      "userId": "0087e91a-94b5-4864-9904-d519aeeeb373",
+      "comments": [
+        "59e28e7c-ab03-4218-97fa-82e75a885beb",
+        "52660d73-9e37-4027-ade5-ef5356515b89"
+      ]
+    }
+  ],
+  "messages": [
+    {
+      "id": "0a09fd05-f641-4e1a-9446-b9e1f8861a58",
+      "senderId": "f63651e8-f2cd-41aa-8216-c7ef5f694d6e",
+      "content": "Could you please make sure you send the files before end of day? Thanks!",
+      "created_at": "2020-06-28T12:14:39.643Z"
+    },
+    {
+      "id": "48dc6bc1-1b10-4649-ae35-c4c8d5c4751b",
+      "senderId": "52660d73-9e37-4027-ade5-ef5356515b89",
+      "content": "We still up for tennis this weekend?",
+      "created_at": "2020-06-28T12:15:50.821Z"
+    },
+    {
+      "id": "4f088fc7-603b-4226-8fbf-cd822ab9b97a",
+      "senderId": "52660d73-9e37-4027-ade5-ef5356515b89",
+      "content": "Helloooo? Tennis?",
+      "created_at": "2020-06-28T12:16:50.655Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "59e28e7c-ab03-4218-97fa-82e75a885beb",
+      "userId": "f63651e8-f2cd-41aa-8216-c7ef5f694d6e",
+      "content": "Awesome post brother!",
+      "created_at": "2020-06-28T12:09:44.636Z"
+    },
+    {
+      "id": "52660d73-9e37-4027-ade5-ef5356515b89",
+      "userId": "dd4de41d-0fd3-44c5-a099-ea2e64eadd15",
+      "content": "Couldn't agree more!",
+      "created_at": "2020-06-28T12:11:13.636Z"
+    },
+    {
+      "id": "a926e21f-583f-40a2-855d-7de747e63a56",
+      "userId": "dd4de41d-0fd3-44c5-a099-ea2e64eadd15",
+      "content": "I wish we saw more posts like this!",
+      "created_at": "2020-06-28T12:19:19.432Z"
+    }
+  ],
+  "users": [
+    {
+      "id": "f63651e8-f2cd-41aa-8216-c7ef5f694d6e",
+      "username": "Jane",
+      "photoUrl": "https://live.staticflickr.com/5311/14365669046_06540bbbff_b.jpg"
+    },
+    {
+      "id": "0acfc1da-a450-4d05-ba07-057b5cfd9810",
+      "username": "Annie",
+      "photoUrl": "https://live.staticflickr.com/2936/14387367072_85312c31b3_b.jpg"
+    },
+    {
+      "id": "0087e91a-94b5-4864-9904-d519aeeeb373",
+      "username": "Jim",
+      "photoUrl": "https://cdn.pixabay.com/photo/2019/11/03/23/27/black-businessman-4599846_960_720.jpg"
+    },
+    {
+      "id": "dd4de41d-0fd3-44c5-a099-ea2e64eadd15",
+      "username": "Fred",
+      "photoUrl": "https://live.staticflickr.com/4210/35001115431_f7e791a90a_b.jpg"
+    }
+  ],
+  "auth": {
+    "token": "2984051b-ed69-458b-ab77-e796d4462ca7"
+  }
+}

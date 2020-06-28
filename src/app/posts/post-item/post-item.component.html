@@ -1,7 +1,7 @@
 <mat-card [ngClass]="{ 'highlighted': index === 0 }">
   <mat-card-title [ngStyle]="{ fontSize: (index + 2) + 'em' }">{{ post.title }}</mat-card-title>
   <mat-card-content>
-    <p>{{ post.created | date: 'medium' }}</p>
+    <p>{{ post.created_at | date: 'medium' }}</p>
     <img [src]="imageUrl">
     {{ post.content }}
     <div>

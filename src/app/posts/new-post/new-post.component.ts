@@ -25,8 +25,7 @@ export class NewPostComponent implements OnInit {
   }
 
   onSubmit() {
-    this.postsService.addPost(this.postsService.generatePost(this.newPostForm.value));
-    this.router.navigateByUrl('posts');
+    this.postsService.addPost(new Post());
   }
 
 }

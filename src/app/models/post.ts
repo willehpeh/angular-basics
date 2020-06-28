@@ -1,6 +1,8 @@
 export class Post {
-  created: Date;
-  constructor(public title: string, public content: string) {
-    this.created = new Date();
-  }
+  id: string;
+  title: string;
+  content: string;
+  created_at: Date;
+  userId: string;
+  comments?: string[];
 }
