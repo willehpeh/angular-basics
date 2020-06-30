@@ -5,4 +5,5 @@
   </div>
   <button mat-flat-button (click)="onNewPost()">New Post</button>
 </mat-toolbar>
+<h1>{{ title$ | async }}</h1>
 <router-outlet></router-outlet>
