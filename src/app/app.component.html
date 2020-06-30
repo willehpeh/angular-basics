@@ -1,6 +1,8 @@
 <mat-toolbar color="primary">
-  <a routerLink="posts" routerLinkActive="active">Posts</a>
-  <a routerLink="messages" routerLinkActive="active">Messages</a>
+  <div>
+    <a routerLink="posts" routerLinkActive="active">Posts</a>
+    <a routerLink="messages" routerLinkActive="active">Messages</a>
+  </div>
   <button mat-flat-button (click)="onNewPost()">New Post</button>
 </mat-toolbar>
 <router-outlet></router-outlet>
