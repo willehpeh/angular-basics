@@ -13,7 +13,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
-import { reducers } from './reducer';
+import { CustomSerializer, reducers } from './reducer';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -30,7 +30,9 @@ import { HttpClientModule } from '@angular/common/http';
     SharedModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
-    StoreRouterConnectingModule.forRoot(),
+    StoreRouterConnectingModule.forRoot({
+      serializer: CustomSerializer
+    }),
     EffectsModule.forRoot([]),
     EntityDataModule.forRoot(entityConfig)
   ],
