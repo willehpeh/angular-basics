@@ -14,6 +14,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { reducers } from './reducer';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { reducers } from './reducer';
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
+    SharedModule,
+    HttpClientModule,
     SharedModule,
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
