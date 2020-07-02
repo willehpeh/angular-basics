@@ -3,7 +3,14 @@
     <a routerLink="posts" routerLinkActive="active">Posts</a>
     <a routerLink="messages" routerLinkActive="active">Messages</a>
   </div>
-  <button mat-flat-button (click)="onNewPost()">New Post</button>
+  <div>
+    <button mat-flat-button (click)="onNewPost()">New Post</button>
+    <button
+      *ngIf="isLoggedIn$ | async"
+      mat-flat-button
+      (click)="onLogout()"
+      color="warn">Logout</button>
+  </div>
 </mat-toolbar>
 <h1>{{ title$ | async }}</h1>
 <router-outlet></router-outlet>

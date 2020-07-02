@@ -2,6 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { from, interval, Observable, of, Subject } from 'rxjs';
 import { debounceTime, delay, filter, map, pluck, share, take, takeUntil, tap, throttleTime } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { selectIsLoggedIn } from './auth/store/auth.selectors';
+
+import * as LoginActions from './auth/store/auth.actions';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +18,10 @@ export class AppComponent implements OnInit {
   title$: Observable<string>;
   title: string;
 
-  constructor(private router: Router) {}
+  isLoggedIn$: Observable<boolean>;
+
+  constructor(private router: Router,
+              private store: Store) {}
 
   ngOnInit() {
     // this.interval$ = interval(1000).pipe(
@@ -31,11 +38,17 @@ export class AppComponent implements OnInit {
     //   filter(valueObj => valueObj.value % 2 === 0),
     //   pluck('messages', 'message')
     // );
+    this.isLoggedIn$ = this.store.select(selectIsLoggedIn);
+    this.store.dispatch(LoginActions.checkTokenInStorage());
   }
 
   onNewPost() {
     this.router.navigateByUrl('posts/new');
     // this.router.navigate(['posts', 'new']);
+  }
+
+  onLogout() {
+    this.store.dispatch(LoginActions.logout());
   }
 
 }

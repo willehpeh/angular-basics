@@ -15,6 +15,9 @@ import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { CustomSerializer, reducers } from './reducer';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthModule } from './auth/auth.module';
+import { RootEffects } from './effects/root.effects';
+import { httpInterceptorProviders } from './interceptors';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     FourOhFourComponent
   ],
   imports: [
+    AuthModule,
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
@@ -33,10 +37,12 @@ import { HttpClientModule } from '@angular/common/http';
     StoreRouterConnectingModule.forRoot({
       serializer: CustomSerializer
     }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([RootEffects]),
     EntityDataModule.forRoot(entityConfig)
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,9 @@
+<form [formGroup]="loginForm">
+  <mat-form-field>
+    <input type="text" matInput placeholder="Username" formControlName="username">
+  </mat-form-field>
+  <mat-form-field>
+    <input type="password" matInput placeholder="Password" formControlName="password">
+  </mat-form-field>
+  <button mat-flat-button color="primary" (click)="onLogin()">Login</button>
+</form>
