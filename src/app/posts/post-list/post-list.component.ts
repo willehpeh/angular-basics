@@ -40,9 +40,9 @@ export class PostListComponent implements OnInit {
       debounceTime(300),
       distinctUntilChanged(),
       tap(console.log),
-      switchMap(searchValue => this.postsService.getPosts().pipe(
-        map(posts => posts.filter(post => post.user.username.indexOf(searchValue) > -1))
-      ))
+      // switchMap(searchValue => this.postsService.getPosts().pipe(
+      //   map(posts => posts.filter(post => post.user.username.indexOf(searchValue) > -1))
+      // ))
     ));
   }
 

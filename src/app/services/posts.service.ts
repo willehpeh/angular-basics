@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BackendPost, Post } from '../models/post';
+import { Post } from '../models/post';
 import { HttpClient } from '@angular/common/http';
 import { concatMap, exhaustMap, map, mergeMap, switchMap, tap, toArray } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
@@ -14,9 +14,9 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   getPosts(): Observable<Post[]> {
-    return this.http.get<BackendPost[]>(`${environment.apiUrl}/posts`).pipe(
-      mergeMap((posts: BackendPost[]) => from(posts)),
-      mergeMap((post: BackendPost) => this.http.get<User>(`${environment.apiUrl}/users/${post.userId}`).pipe(
+    return this.http.get<Post[]>(`${environment.apiUrl}/posts`).pipe(
+      mergeMap((posts: Post[]) => from(posts)),
+      mergeMap((post: Post) => this.http.get<User>(`${environment.apiUrl}/users/${post.userId}`).pipe(
         // generate Date object as well as populating User
         map((user: User) => ({ ...post, created_at: new Date(post.created_at), user }))
       )),
@@ -27,7 +27,7 @@ export class PostsService {
   }
 
   getPostById(id: string): Observable<Post> {
-    return this.http.get<BackendPost>(`${environment.apiUrl}/posts/${id}`).pipe(
+    return this.http.get<Post>(`${environment.apiUrl}/posts/${id}`).pipe(
       mergeMap(post => this.http.get<User>(`${environment.apiUrl}/users/${post.userId}`).pipe(
         map(user => ({...post, user}))
       ))
@@ -38,7 +38,7 @@ export class PostsService {
     alert(title + ' was clicked!');
   }
 
-  addPost(post: BackendPost) {
+  addPost(post: Post) {
     return this.http.post<any>(`${environment.apiUrl}/posts`, post);
   }
 
