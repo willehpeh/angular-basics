@@ -14,16 +14,7 @@ export class PostsService {
   constructor(private http: HttpClient) {}
 
   getPosts(): Observable<Post[]> {
-    return this.http.get<Post[]>(`${environment.apiUrl}/posts`).pipe(
-      mergeMap((posts: Post[]) => from(posts)),
-      mergeMap((post: Post) => this.http.get<User>(`${environment.apiUrl}/users/${post.userId}`).pipe(
-        // generate Date object as well as populating User
-        map((user: User) => ({ ...post, created_at: new Date(post.created_at), user }))
-      )),
-      toArray(),
-      // sort posts by created Date, latest to earliest
-      map(posts => posts.sort((a, b) => b.created_at.getTime() - a.created_at.getTime()))
-    );
+    return this.http.get<Post[]>(`${environment.apiUrl}/posts`);
   }
 
   getPostById(id: string): Observable<Post> {

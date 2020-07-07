@@ -4,6 +4,9 @@ import { PostsService } from '../../services/posts.service';
 import { concat, Observable } from 'rxjs';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, distinctUntilChanged, map, startWith, switchMap, tap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { selectAllPosts } from '../store/posts.selectors';
+import { allPostsRequested } from '../store/posts.actions';
 
 @Component({
   selector: 'app-post-list',
@@ -23,7 +26,8 @@ export class PostListComponent implements OnInit {
   posts$: Observable<Post[]>;
 
   constructor(private postsService: PostsService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private store: Store) { }
 
   ngOnInit(): void {
     // this.postOne = new Post('Mon premier tweet', 'Voici ce que j\'ai à raconter');
@@ -36,14 +40,8 @@ export class PostListComponent implements OnInit {
     this.searchForm = this.formBuilder.group({
       search: [null]
     });
-    this.posts$ = concat(this.postsService.getPosts(), this.searchForm.get('search').valueChanges.pipe(
-      debounceTime(300),
-      distinctUntilChanged(),
-      tap(console.log),
-      // switchMap(searchValue => this.postsService.getPosts().pipe(
-      //   map(posts => posts.filter(post => post.user.username.indexOf(searchValue) > -1))
-      // ))
-    ));
+    this.posts$ = this.store.select(selectAllPosts);
+    this.store.dispatch(allPostsRequested());
   }
 
   onPostClicked(title: string) {

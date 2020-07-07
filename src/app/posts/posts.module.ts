@@ -6,6 +6,11 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { PostsRoutingModule } from './posts-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { SinglePostComponent } from './single-post/single-post.component';
+import { StoreModule } from '@ngrx/store';
+
+import * as fromPosts from './store/posts.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { PostsEffects } from './store/posts.effects';
 
 @NgModule({
   declarations: [
@@ -17,7 +22,9 @@ import { SinglePostComponent } from './single-post/single-post.component';
   imports: [
     PostsRoutingModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    StoreModule.forFeature(fromPosts.featureKey, fromPosts.reducer),
+    EffectsModule.forFeature([PostsEffects])
   ]
 })
 export class PostsModule { }
