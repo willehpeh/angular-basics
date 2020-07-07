@@ -3,7 +3,7 @@ import { Post } from '../models/post';
 import { HttpClient } from '@angular/common/http';
 import { concatMap, exhaustMap, map, mergeMap, switchMap, tap, toArray } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { BehaviorSubject, from, Observable } from 'rxjs';
+import { BehaviorSubject, from, Observable, of } from 'rxjs';
 import { User } from '../models/user';
 
 @Injectable({ providedIn: 'root' })
@@ -11,7 +11,13 @@ export class PostsService {
 
   private posts: Post[] = [];
 
+  private posts$: BehaviorSubject<Post[]>;
+
   constructor(private http: HttpClient) {}
+
+  getPosts$(): Observable<Post[]> {
+    return of(this.posts);
+  }
 
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(`${environment.apiUrl}/posts`).pipe(

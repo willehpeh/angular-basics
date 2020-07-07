@@ -28,6 +28,34 @@
         "59e28e7c-ab03-4218-97fa-82e75a885beb",
         "52660d73-9e37-4027-ade5-ef5356515b89"
       ]
+    },
+    {
+      "title": "Nouveau post GIP",
+      "content": "Pour prouver que ça marche !",
+      "id": "eb557c60-dbbd-4fae-9899-f7bad8428a07",
+      "created_at": "2020-07-07T09:36:52.826Z",
+      "userId": "f63651e8-f2cd-41aa-8216-c7ef5f694d6e"
+    },
+    {
+      "title": "Encore un nouveau post",
+      "content": "Cette fois-ci c'est la bonne !",
+      "id": "5e3f424e-a555-45b8-8ebe-d7bfba4b66c7",
+      "created_at": "2020-07-07T09:40:07.104Z",
+      "userId": "f63651e8-f2cd-41aa-8216-c7ef5f694d6e"
+    },
+    {
+      "title": "First Data Post",
+      "content": "Data posts!",
+      "id": "6659e31f-3857-4e92-98cb-c47420636d87",
+      "created_at": "2020-07-07T10:45:31.346Z",
+      "userId": "f63651e8-f2cd-41aa-8216-c7ef5f694d6e"
+    },
+    {
+      "title": "Second data post",
+      "content": "Woohoo!",
+      "id": "cf0169bb-30f1-4b07-9f49-66cd863666c7",
+      "created_at": "2020-07-07T10:51:47.501Z",
+      "userId": "f63651e8-f2cd-41aa-8216-c7ef5f694d6e"
     }
   ],
   "messages": [

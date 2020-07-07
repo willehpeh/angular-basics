@@ -6,6 +6,16 @@ import { NewPostComponent } from './new-post/new-post.component';
 import { PostsRoutingModule } from './posts-routing.module';
 import { SharedModule } from '../shared/shared.module';
 import { SinglePostComponent } from './single-post/single-post.component';
+import { EntityDefinitionService, EntityMetadataMap } from '@ngrx/data';
+import { PostEntityService } from './post-entity.service';
+import { Post } from '../models/post';
+
+const entityMetadata: EntityMetadataMap = {
+  Post: {
+    sortComparer: (a: Post, b: Post) =>
+      new Date(b.created_at).getTime() - new Date(a.created_at).getTime()
+  }
+};
 
 @NgModule({
   declarations: [
@@ -18,6 +28,13 @@ import { SinglePostComponent } from './single-post/single-post.component';
     PostsRoutingModule,
     CommonModule,
     SharedModule
+  ],
+  providers: [
+    PostEntityService
   ]
 })
-export class PostsModule { }
+export class PostsModule {
+  constructor(private eds: EntityDefinitionService) {
+    eds.registerMetadataMap(entityMetadata);
+  }
+}

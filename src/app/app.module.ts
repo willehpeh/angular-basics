@@ -11,13 +11,23 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EffectsModule } from '@ngrx/effects';
-import { EntityDataModule } from '@ngrx/data';
+import { DefaultDataServiceConfig, EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { CustomSerializer, reducers } from './reducer';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthModule } from './auth/auth.module';
 import { RootEffects } from './effects/root.effects';
 import { httpInterceptorProviders } from './interceptors';
+
+const defaultDataServiceConfig: DefaultDataServiceConfig = {
+  root: `${environment.apiUrl}`,
+  entityHttpResourceUrls: {
+    Post: {
+      collectionResourceUrl: `${environment.apiUrl}/posts`,
+      entityResourceUrl: `${environment.apiUrl}/posts`,
+    }
+  }
+};
 
 @NgModule({
   declarations: [
@@ -41,7 +51,8 @@ import { httpInterceptorProviders } from './interceptors';
     EntityDataModule.forRoot(entityConfig)
   ],
   providers: [
-    httpInterceptorProviders
+    httpInterceptorProviders,
+    { provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }
   ],
   bootstrap: [AppComponent]
 })

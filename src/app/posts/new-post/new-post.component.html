@@ -8,5 +8,6 @@
     <textarea matInput placeholder="Contenu" type="text" formControlName="content"></textarea>
     <mat-error>Ce champ est requis.</mat-error>
   </mat-form-field>
-  <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="newPostForm.invalid">Soumettre</button>
+  <button mat-flat-button color="primary" (click)="onSubmit()"
+          [disabled]="newPostForm.invalid || (loading$ | async)">Soumettre</button>
 </form>
