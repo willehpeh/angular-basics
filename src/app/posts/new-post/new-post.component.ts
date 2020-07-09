@@ -7,11 +7,24 @@ import * as uuid from 'uuid';
 import { catchError, take, tap } from 'rxjs/operators';
 import { EMPTY, Observable } from 'rxjs';
 import { PostEntityService } from '../post-entity.service';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
   selector: 'app-new-post',
   templateUrl: './new-post.component.html',
-  styleUrls: ['./new-post.component.scss']
+  styleUrls: ['./new-post.component.scss'],
+  animations: [
+    trigger('formValidated', [
+      state('VALID', style({
+        backgroundColor: 'lightgreen'
+      })),
+      state('INVALID', style({
+        backgroundColor: '*'
+      })),
+      transition('INVALID => VALID', animate('1000ms ease-in')),
+      transition('VALID => INVALID', animate('100ms linear'))
+    ])
+  ]
 })
 export class NewPostComponent implements OnInit {
 

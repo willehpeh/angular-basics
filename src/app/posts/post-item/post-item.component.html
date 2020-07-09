@@ -1,4 +1,9 @@
-<mat-card [ngClass]="{ 'highlighted': index === 0 }">
+<mat-card
+  [ngClass]="{ 'highlighted': index === 0 }"
+  @fadeIn
+  [@colorChange]="backgroundColorState"
+  (@fadeIn.done)="animationDone()"
+>
   <mat-card-title [ngStyle]="{ fontSize: (index + 2) + 'em' }">{{ post.title }}</mat-card-title>
   <mat-card-content>
     <p>{{ post.created_at | date: 'medium' }}</p>
