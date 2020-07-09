@@ -32,6 +32,10 @@ export class PostsService {
     );
   }
 
+  getJustPosts() {
+    return this.http.get<Post[]>(`${environment.apiUrl}/posts`);
+  }
+
   getPostById(id: string): Observable<Post> {
     return this.http.get<Post>(`${environment.apiUrl}/posts/${id}`).pipe(
       mergeMap(post => this.http.get<User>(`${environment.apiUrl}/users/${post.userId}`).pipe(
@@ -46,6 +50,10 @@ export class PostsService {
 
   addPost(post: Post) {
     return this.http.post<any>(`${environment.apiUrl}/posts`, post);
+  }
+
+  getStaticPosts() {
+    return this.posts;
   }
 
 }
